@@ -13,25 +13,36 @@ import java.util.List;
 // TODO: Do not hard code questions and answers
 @RestController
 public class QuestionController {
+    List<Question> questions = new LinkedList<>();
+    List<Answer> answers = new LinkedList<>();
 
-    @GetMapping("/api/question")
-    public Question getQuestion() {
-        return new Question(1,"Hur långt syns en mörkklädd person i halvljus?");
+    QuestionController() {
+        initiateQuestions();
     }
 
-    @GetMapping("/api/answer")
-    public List<Answer> getAnswer(@RequestParam(value="id") long id) {
-        return Arrays.asList(
-                new Answer(1, 1,"20 - 30 meter", true),
-                new Answer(2, 1,"50 - 60 meter", false),
-                new Answer(2, 1,"60 - 70 meter", false)
-        );
+    @GetMapping("/api/questions")
+    public  List<Question> getQuestions() {
+        return questions;
+    }
+    @GetMapping("/api/question")
+    public  Question getQuestion(@RequestParam(value="id") long id) {
+        return questions.get((int)id); // TODO: Fix hardcoding
+    }
+
+    @GetMapping("/api/answers")
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+    @GetMapping("/api/answers")
+    public List<Answer> getAnswers(@RequestParam(value="questionId") long id) {
+        return answers;
+    }
+    @GetMapping("/api/correctanswer")
+    public Answer getCorrectAnswers(@RequestParam(value="questionId") long id) {
+        return answers.get(0); // TODO: Fix hardcoding
     }
 
     private void initiateQuestions() {
-        List<Question> questions = new LinkedList<>();
-        List<Answer> answers   = new LinkedList<>();
-
         questions.add(new Question(1,"Hur långt syns en mörkklädd person i halvljus?"));
         answers.add(new Answer(1, 1,"20 - 30 meter", true));
         answers.add(new Answer(2, 1,"50 - 60 meter", false));
@@ -47,7 +58,6 @@ public class QuestionController {
         answers.add(new Answer(8, 3,"Ca 200 personer", false));
         answers.add(new Answer(9, 3,"Ca 300 personer", false));
         answers.add(new Answer(10, 3,"Ca 400 personer", false));
-
     }
 
 }
