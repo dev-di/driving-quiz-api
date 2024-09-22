@@ -15,4 +15,5 @@ http://localhost:8082/all-questions
 [ ] Deploy on the cloud
 [ ] Add more questions
 [ ] Att swagger ui
+[ ] Add unit tests for rest endpoints
 [ ] etc ...
