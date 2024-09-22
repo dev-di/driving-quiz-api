@@ -3,11 +3,18 @@
 ### Running the project
 mvn spring-boot:run
 
+### Building the project
+mvn clean install
+mvn clean install -DskipTests
+
+### Testing the project
+mvn clean test
+
 ### Openapi, swagger ui
-Get the spec here as json:
-http://localhost:8082/openapi
-Get the spec here as yaml:
-http://localhost:8082/openapi.yaml
+Get the spec here (as json or as yaml):
+* http://localhost:8082/openapi
+* http://localhost:8082/openapi.yaml
+The spec is also generated when building the project.
 
 Swagger ui
 http://localhost:8082/swagger-ui/index.html
