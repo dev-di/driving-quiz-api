@@ -24,19 +24,26 @@ public class QuestionController {
     public  List<Question> getQuestions() {
         return questions;
     }
+
     @GetMapping("/question")
     public  Question getQuestion(@RequestParam(value="id") long id) {
         return questions.get((int)id); // TODO: Fix hardcoding
     }
 
+    @GetMapping("/all-questions")
+    public List<Answer> getAllQuestions() {
+        return answers;
+    }
     @GetMapping("/all-answers")
     public List<Answer> getAllAnswers() {
         return answers;
     }
+
     @GetMapping("/answers")
     public List<Answer> getAnswers(@RequestParam(value="questionId") long id) {
         return answers;
     }
+
     @GetMapping("/correctanswer")
     public Answer getCorrectAnswers(@RequestParam(value="questionId") long id) {
         return answers.get(0); // TODO: Fix hardcoding
