@@ -1,4 +1,8 @@
 package com.quizmaster.api.model;
 
-public record Question(long id, String question) {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public record Question(@Id long id, String question) {
 }

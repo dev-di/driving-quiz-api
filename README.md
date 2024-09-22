@@ -7,6 +7,9 @@ mvn spring-boot:run
 mvn clean install
 mvn clean install -DskipTests
 
+### spin up a test db for local testing
+`docker run -d -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=example mysql`
+
 ### Testing the project
 mvn clean test
 
