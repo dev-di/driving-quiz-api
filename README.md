@@ -24,7 +24,7 @@ http://localhost:8082/swagger-ui/index.html
 
 ### Endpoint example
 Here is one endpoint example: 
-http://localhost:8082/all-questions
+http://localhost:8082/questions
 Go to the swagger page (or openapi spec) to see all endpoints.
 
 ### TODO
